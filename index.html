@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bidcar - już wkrótce!</title>
+
+    <style>
+      /* Box sizing rules */
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* Remove default margin */
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      figure,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+
+      ul[role='list'],
+      ol[role='list'] {
+        list-style: none;
+      }
+
+      ul,
+      ol {
+        padding-left: 0;
+      }
+
+      /* Set core root defaults */
+
+      html:focus-within {
+        scroll-behavior: smooth;
+      }
+
+      /* Set core body defaults */
+
+      body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.5;
+      }
+
+      /* A elements that don't have a class get default styles */
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      a:hover {
+        color: inherit;
+      }
+
+      /* Make images easier to work with */
+
+      img,
+      picture {
+        max-width: 100%;
+        display: block;
+        height: auto;
+      }
+
+      /* Inherit fonts for inputs and buttons */
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Thin.woff2) format('woff2'), url(./fonts/Barlow-Thin.woff) format('woff'),
+          url(./fonts/Barlow-Thin.ttf) format('truetype');
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-ExtraLight.woff2) format('woff2'), url(./fonts/Barlow-ExtraLight.woff) format('woff'),
+          url(./fonts/Barlow-ExtraLight.ttf) format('truetype');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Light.woff2) format('woff2'), url(./fonts/Barlow-Light.woff) format('woff'),
+          url(./fonts/Barlow-Light.ttf) format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Regular.woff2) format('woff2'), url(./fonts/Barlow-Regular.woff) format('woff'),
+          url(./fonts/Barlow-Regular.ttf) format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Medium.woff2) format('woff2'), url(./fonts/Barlow-Medium.woff) format('woff'),
+          url(./fonts/Barlow-Medium.ttf) format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-SemiBold.woff2) format('woff2'), url(./fonts/Barlow-SemiBold.woff) format('woff'),
+          url(./fonts/Barlow-SemiBold.ttf) format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Bold.woff2) format('woff2'), url(./fonts/Barlow-Bold.woff) format('woff'),
+          url(./fonts/Barlow-Bold.ttf) format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-ExtraBold.woff2) format('woff2'), url(./fonts/Barlow-ExtraBold.woff) format('woff'),
+          url(./fonts/Barlow-ExtraBold.ttf) format('truetype');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Black.woff2) format('woff2'), url(./fonts/Barlow-Black.woff) format('woff'),
+          url(./fonts/Barlow-Black.ttf) format('truetype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-ThinItalic.woff2) format('woff2'), url(./fonts/Barlow-ThinItalic.woff) format('woff'),
+          url(./fonts/Barlow-ThinItalic.ttf) format('truetype');
+        font-weight: 100;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-ExtraLightItalic.woff2) format('woff2'),
+          url(./fonts/Barlow-ExtraLightItalic.woff) format('woff'),
+          url(./fonts/Barlow-ExtraLightItalic.ttf) format('truetype');
+        font-weight: 200;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-LightItalic.woff2) format('woff2'), url(./fonts/Barlow-LightItalic.woff) format('woff'),
+          url(./fonts/Barlow-LightItalic.ttf) format('truetype');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-Italic.woff2) format('woff2'), url(./fonts/Barlow-Italic.woff) format('woff'),
+          url(./fonts/Barlow-Italic.ttf) format('truetype');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-MediumItalic.woff2) format('woff2'),
+          url(./fonts/Barlow-MediumItalic.woff) format('woff'), url(./fonts/Barlow-MediumItalic.ttf) format('truetype');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-SemiBoldItalic.woff2) format('woff2'),
+          url(./fonts/Barlow-SemiBoldItalic.woff) format('woff'),
+          url(./fonts/Barlow-SemiBoldItalic.ttf) format('truetype');
+        font-weight: 600;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-BoldItalic.woff2) format('woff2'), url(./fonts/Barlow-BoldItalic.woff) format('woff'),
+          url(./fonts/Barlow-BoldItalic.ttf) format('truetype');
+        font-weight: 700;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-ExtraBoldItalic.woff2) format('woff2'),
+          url(./fonts/Barlow-ExtraBoldItalic.woff) format('woff'),
+          url(./fonts/Barlow-ExtraBoldItalic.ttf) format('truetype');
+        font-weight: 800;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Barlow;
+        src: url(./fonts/Barlow-BlackItalic.woff2) format('woff2'), url(./fonts/Barlow-BlackItalic.woff) format('woff'),
+          url(./fonts/Barlow-BlackItalic.ttf) format('truetype');
+        font-weight: 900;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      body {
+        font-family: 'Barlow', sans-serif !important;
+      }
+
+      body {
+        color: #031533;
+      }
+
+      body {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        bottom: 0;
+      }
+
+      .logo {
+        width: 100%;
+        max-width: 450px;
+        margin-inline: auto;
+      }
+
+      .wrapper {
+        padding: 0 10px 20px 30px;
+        text-align: center;
+      }
+
+      .wrapper p {
+        font-size: 1.125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .wrapper * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .wrapper p br {
+        display: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          -webkit-animation-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      @media only screen and (max-width: 48em) {
+        .wrapper p br {
+          display: block;
+        }
+      }
+
+      @media only screen and (max-width: 35.9375em) {
+        .wrapper {
+          padding: 10px 20px;
+        }
+
+        .wrapper h1 {
+          font-size: calc(28rem / 16);
+        }
+
+        .wrapper p {
+          font-size: 1rem;
+          width: 100%;
+        }
+
+        .wrapper::before {
+          -webkit-clip-path: none;
+          clip-path: none;
+          top: 50%;
+          height: 50%;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <svg viewBox="0 0 200 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_7295_10039)">
+          <path
+            d="M60.775 1.1936C64.5099 1.1936 67.5125 2.5855 69.7461 5.40894C71.9798 8.23238 72.7487 11.5753 72.0608 15.5131C71.3283 19.4905 69.4629 22.7501 66.5008 25.2563C63.5388 27.7625 59.9657 29.0354 55.7856 29.0354H44.2166L49.21 1.1936H60.779H60.775ZM59.557 8.07376H55.4578L52.9004 22.1553H56.7972C58.8691 22.1553 60.6131 21.5208 62.1144 20.2082C63.6156 18.8956 64.5909 17.1468 64.9955 14.9975C65.6875 10.8219 63.4942 8.07772 59.557 8.07772"
+            fill="#030935"
+          />
+          <path
+            d="M76.7303 25.3396C74.3348 22.4765 73.5255 18.9353 74.2134 14.7199C74.9054 10.6236 76.8113 7.24098 79.9352 4.57616C83.0996 1.91134 86.7941 0.598755 90.9742 0.598755C96.5341 0.598755 100.512 3.10496 102.584 7.24098L95.9271 10.7029C94.8305 8.59322 92.965 7.56219 90.2862 7.56219C88.0526 7.56219 86.1466 8.27598 84.4795 9.67183C82.8568 11.0637 81.8411 12.8561 81.4365 15.1204C81.0723 17.3094 81.396 19.1375 82.4926 20.569C83.5892 21.9609 85.2119 22.6787 87.3646 22.6787C90.0839 22.6787 92.3176 21.5644 94.0212 19.3358L99.9858 23.1149C96.9428 27.2509 92.1922 29.6382 86.875 29.6382C82.5331 29.6382 79.1218 28.2066 76.7263 25.3435"
+            fill="#030935"
+          />
+          <path
+            d="M119.097 28.7481L118.652 24.7311H109.195L107.249 28.7481H99.2528L113.618 0.902344H122.468L126.85 28.7481H119.097V28.7481ZM112.198 18.6044H117.96L116.904 8.98008L112.194 18.6044H112.198Z"
+            fill="#030935"
+          />
+          <path
+            d="M146.638 18.9353L150.535 29.0394H143.227L139.901 20.0496H136.813L135.191 29.0394H127.923L132.961 1.1936H144.081C146.881 1.1936 149.196 2.18895 150.94 4.13601C152.684 6.08307 153.335 8.47031 152.805 11.2144C152.158 14.7556 149.924 17.4998 146.634 18.9313L146.638 18.9353ZM139.003 7.75255L137.865 13.9982H142.045C143.83 14.0379 145.21 12.765 145.538 10.8972C145.861 9.02945 144.846 7.75652 142.899 7.75652H139.003V7.75255Z"
+            fill="#030935"
+          />
+          <path
+            d="M185.339 11.8529C186.841 13.9982 187.367 16.5441 186.881 19.4905C186.395 22.3536 185.177 24.7408 183.227 26.6918C181.317 28.6389 178.926 29.5946 176.085 29.5946C173.447 29.5946 171.496 28.6389 170.282 26.7712L168.457 36.9942H161.72L166.713 9.1524H173.451L173.167 10.7822C174.709 9.31102 176.619 8.59326 178.93 8.59326C181.73 8.59326 183.842 9.66791 185.343 11.8569L185.339 11.8529ZM176.736 14.7596C174.26 14.7596 172.233 16.3894 171.703 18.9353L171.622 19.2129C171.257 21.7587 172.678 23.4282 175.154 23.4282C177.631 23.4282 179.698 21.7587 180.148 19.0939C180.633 16.4291 179.294 14.7596 176.736 14.7596"
+            fill="#60CD15"
+          />
+          <path
+            d="M188.067 29.0355L190.341 16.2705L193.263 0H200L197.078 16.4688L194.804 29.0355H188.067Z"
+            fill="#60CD15"
+          />
+          <path d="M154.772 22.9286L153.683 29.0394H160.421L161.526 22.9286H154.772Z" fill="#60CD15" />
+          <path d="M31.8138 29.0354H39.0814L44.0748 1.1936H36.8073L31.8138 29.0354Z" fill="#030935" />
+          <path
+            d="M30.8225 9.3864C31.2271 6.99917 30.6606 5.0521 29.0784 3.49762C27.4962 1.94711 25.303 1.1897 22.5028 1.1897H4.99747L3.85635 7.55434H21.4466C22.9074 7.55434 23.6803 8.43071 23.474 9.7433C23.2716 11.1352 22.0941 11.9323 20.6333 11.9323H3.06727L0 29.0355H18.4846C24.9388 29.0355 28.957 25.8948 29.6045 21.16C29.9686 18.4159 29.1593 16.3062 27.1684 14.835C29.1553 13.6017 30.3733 11.7736 30.8225 9.3864ZM22.5028 20.3233C22.2195 21.7152 21.0824 22.6709 19.5003 22.6709H8.40465L9.24633 17.9757H20.3905C22.0132 17.9757 22.786 18.8917 22.5028 20.3233Z"
+            fill="#030935"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_7295_10039">
+            <rect width="200" height="36.9942" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="wrapper">
+      <h1>Nowy model...</h1>
+      <p>
+        Premiera: <br />
+        16 Sierpnia 2022
+      </p>
+    </div>
+  </body>
+</html>
